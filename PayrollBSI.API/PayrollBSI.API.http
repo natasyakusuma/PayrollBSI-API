@@ -1,0 +1,6 @@
+@PayrollBSI.API_HostAddress = http://localhost:5097
+
+GET {{PayrollBSI.API_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

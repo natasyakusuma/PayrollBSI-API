@@ -21,10 +21,12 @@ namespace PayrollBSI.Data
             try
             {
                 //Execute store procedure
-                var result = await _context.Database.ExecuteSqlInterpolatedAsync($"EXEC DeletePosition @PositionID = {id}");
+                var result = await _context.Database.ExecuteSqlInterpolatedAsync($"EXEC DeletePosition @PositionID = {id}"); // untuk execute berdasarkan parameternya
+				
+                //Sql raw untuk get Row data dari table
 
-                //check the result
-                if (result > 0)
+				//check the result
+				if (result > 0)
                 {
                     return true;
                 }
@@ -43,21 +45,21 @@ namespace PayrollBSI.Data
 
         public async Task<IEnumerable<Position>> GetAll()
         {
-            var positions = await _context.Positions.OrderBy(p => p.PositionName).ToListAsync(); // this is EF using Linq
+            var positions = await _context.Positions.OrderBy(p => p.PositionName).ToListAsync(); // this is EF using Lambda
             return positions;
         }
 
         public async Task<IEnumerable<Position>> GetAllActivePositions()
         {
             var positions = await _context.Positions
-                .Where(p => p.IsActive == true && p.IsDeleted == false)
-                .ToListAsync();
+                .Where(p => p.IsActive == true && p.IsDeleted == false) //this is Linq
+                .ToListAsync(); // to get all data and make it to List/Array
             return positions;
         }
 
         public async Task<Position> GetById(int id)
         {
-            var position = await _context.Positions.FindAsync(id);
+            var position = await _context.Positions.FindAsync(id); // to find the specific data
             if (position == null)
             {
                 throw new Exception($"Position with ID {id} not found");
@@ -81,7 +83,7 @@ namespace PayrollBSI.Data
 
         public async Task<Position> Update(int id, Position obj)
         {
-            var position = await _context.Positions.Where(p => p.PositionId == id).FirstOrDefaultAsync();
+            var position = await _context.Positions.Where(p => p.PositionId == id).FirstOrDefaultAsync(); //to get one specific data 
             if (position != null)
             {
                 position.PositionName = obj.PositionName;

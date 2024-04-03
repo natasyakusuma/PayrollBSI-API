@@ -1,15 +1,15 @@
 [
   {
-    "ContainingType": "PayrollBSI.API.Controllers.EmployeeController",
+    "ContainingType": "PayrollBSI.API.Controllers.AttendanceController",
     "Method": "GetAll",
-    "RelativePath": "api/Employee",
+    "RelativePath": "api/Attendance/All",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
     "Parameters": [],
     "ReturnTypes": [
       {
-        "Type": "System.Collections.Generic.IEnumerable\u00601[[PayrollBSI.BLL.DTO.EmployeeDTO, PayrollBSI.BLL, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[PayrollBSI.BLL.DTO.AttendanceDTO, PayrollBSI.BLL, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -20,51 +20,20 @@
     ]
   },
   {
-    "ContainingType": "PayrollBSI.API.Controllers.EmployeeController",
-    "Method": "ChangePassword",
-    "RelativePath": "api/Employee",
-    "HttpMethod": "PUT",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "username",
-        "Type": "System.String",
-        "IsRequired": false
-      },
-      {
-        "Name": "password",
-        "Type": "System.String",
-        "IsRequired": false
-      }
-    ],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "PayrollBSI.API.Controllers.EmployeeController",
-    "Method": "Login",
-    "RelativePath": "api/Employee",
+    "ContainingType": "PayrollBSI.API.Controllers.AttendanceController",
+    "Method": "Post",
+    "RelativePath": "api/Attendance/Insert",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
     "Parameters": [
       {
-        "Name": "loginCreateDTO",
-        "Type": "PayrollBSI.BLL.DTO.LoginCreateDTO",
+        "Name": "attendanceCreateDTO",
+        "Type": "PayrollBSI.BLL.DTO.AttendanceCreateDTO",
         "IsRequired": true
       }
     ],
-    "ReturnTypes": [
-      {
-        "Type": "PayrollBSI.BLL.DTO.LoginDTO",
-        "MediaTypes": [
-          "text/plain",
-          "application/json",
-          "text/json"
-        ],
-        "StatusCode": 200
-      }
-    ]
+    "ReturnTypes": []
   },
   {
     "ContainingType": "PayrollBSI.API.Controllers.EmployeeController",
@@ -94,8 +63,8 @@
   },
   {
     "ContainingType": "PayrollBSI.API.Controllers.EmployeeController",
-    "Method": "GetAllActiveEmployee",
-    "RelativePath": "api/Employee/Active",
+    "Method": "GetAllActive",
+    "RelativePath": "api/Employee/All",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
@@ -114,15 +83,42 @@
   },
   {
     "ContainingType": "PayrollBSI.API.Controllers.EmployeeController",
-    "Method": "GetWithRoleNameAndPositionName",
-    "RelativePath": "api/Employee/WithName",
-    "HttpMethod": "GET",
+    "Method": "ChangePassword",
+    "RelativePath": "api/Employee/ChangePassword",
+    "HttpMethod": "PUT",
     "IsController": true,
     "Order": 0,
-    "Parameters": [],
+    "Parameters": [
+      {
+        "Name": "username",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "password",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "PayrollBSI.API.Controllers.EmployeeController",
+    "Method": "Login",
+    "RelativePath": "api/Employee/Login",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "loginCreateDTO",
+        "Type": "PayrollBSI.BLL.DTO.LoginCreateDTO",
+        "IsRequired": true
+      }
+    ],
     "ReturnTypes": [
       {
-        "Type": "System.Collections.Generic.IEnumerable\u00601[[PayrollBSI.BLL.DTO.EmployeeWithNameDTO, PayrollBSI.BLL, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "Type": "PayrollBSI.BLL.DTO.LoginDTO",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -131,6 +127,63 @@
         "StatusCode": 200
       }
     ]
+  },
+  {
+    "ContainingType": "PayrollBSI.API.Controllers.EmployeeController",
+    "Method": "SearchEmployees",
+    "RelativePath": "api/Employee/Search",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "employeeName",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "positionName",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "roleName",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[PayrollBSI.BLL.DTO.EmployeeDTO, PayrollBSI.BLL, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "PayrollBSI.API.Controllers.PayrollDetailsController",
+    "Method": "Post",
+    "RelativePath": "api/PayrollDetails/Insert",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "payrollDetailsCreateDTO",
+        "Type": "PayrollBSI.BLL.DTO.PayrollDetailsCreateDTO",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
   },
   {
     "ContainingType": "PayrollBSI.API.Controllers.PositionController",
@@ -151,27 +204,6 @@
         "StatusCode": 200
       }
     ]
-  },
-  {
-    "ContainingType": "PayrollBSI.API.Controllers.PositionController",
-    "Method": "Post",
-    "RelativePath": "api/Position",
-    "HttpMethod": "POST",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "id",
-        "Type": "System.Int32",
-        "IsRequired": false
-      },
-      {
-        "Name": "positionCreateDTO",
-        "Type": "PayrollBSI.BLL.DTO.PositionCreateDTO",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": []
   },
   {
     "ContainingType": "PayrollBSI.API.Controllers.PositionController",
@@ -251,6 +283,22 @@
       {
         "Name": "positionUpdateDTO",
         "Type": "PayrollBSI.BLL.DTO.PositionUpdateDTO",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "PayrollBSI.API.Controllers.PositionController",
+    "Method": "Post",
+    "RelativePath": "api/Position/Insert",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "positionCreateDTO",
+        "Type": "PayrollBSI.BLL.DTO.PositionCreateDTO",
         "IsRequired": true
       }
     ],

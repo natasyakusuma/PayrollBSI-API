@@ -1,18 +1,18 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿
+using PayrollBSI.Data.Models;
 using PayrollBSI.Domain;
 
 namespace PayrollBSI.Data.Interfaces.Data
 {
-    public interface IPayrollDetails
-    {
-        Task<IEnumerable<PayrollDetail>> GetAll();
-        Task<PayrollDetail> Get(int id);
-        Task<Task> Insert(PayrollDetailsCreate obj); //void
-        Task<Task> Update(PayrollDetail obj); // void
-        Task Delete(int id);
-    }
+	public interface IPayrollDetails
+	{
+		Task<IEnumerable<PayrollDetails>> GetAll();
+		Task<PayrollDetailsCreate> Insert(PayrollDetailsCreate obj); //void
+		Task<Task> Update(PayrollDetails obj); // void
+		Task Delete(int id);
+		Task<IEnumerable<PayrollDetails>> GetPayrollDetails(int id);
+		Task<PayrollDetails> GetById(int id);
+
+
+	}
 }

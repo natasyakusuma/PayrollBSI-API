@@ -3,14 +3,17 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using PayrollBSI.Data.Models;
 using PayrollBSI.Domain;
 
 namespace PayrollBSI.Data.Interfaces.Data
 {
-    public interface IAttendance : ICrud<Attendance>
+    public interface IAttendance : ICrud<AttendanceDetails>
     {
-        Task<IEnumerable<Attendance>> GetAttendanceByEmployeeID(int employeeID);
-        Task<IEnumerable<Attendance>> GetAttendanceByEmployeeName(string employeeName);
-        Task<IEnumerable<Attendance>> GetAttendanceWithEmployeeName(string employeeName);
-    }
+		Task<Attendance> Insert(Attendance obj);
+		Task<Attendance> GetById(int id);
+		Task<IEnumerable<AttendanceDetails>> GetByEmployeeID(int employeeID);
+		Task<IEnumerable<AttendanceDetails>> Search(string employeeName);
+
+	}
 }

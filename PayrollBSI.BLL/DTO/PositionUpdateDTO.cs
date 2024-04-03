@@ -8,7 +8,7 @@ namespace PayrollBSI.BLL.DTO
 {
     public class PositionUpdateDTO
     {
-        public string PositionName { get; set; } = "";
+        public string PositionName { get; set; }
         public decimal AllowanceMeal { get; set; }
         public decimal AllowanceTransport { get; set; }
         public decimal DeductionPension { get; set; }

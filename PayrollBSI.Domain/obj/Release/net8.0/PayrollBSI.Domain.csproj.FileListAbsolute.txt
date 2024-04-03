@@ -1,0 +1,15 @@
+D:\Users\bsi80211\source\repos\PayrollBSI.API\PayrollBSI.Domain\bin\Release\net8.0\PayrollBSI.Domain.deps.json
+D:\Users\bsi80211\source\repos\PayrollBSI.API\PayrollBSI.Domain\bin\Release\net8.0\PayrollBSI.Domain.runtimeconfig.json
+D:\Users\bsi80211\source\repos\PayrollBSI.API\PayrollBSI.Domain\bin\Release\net8.0\PayrollBSI.Domain.dll
+D:\Users\bsi80211\source\repos\PayrollBSI.API\PayrollBSI.Domain\bin\Release\net8.0\PayrollBSI.Domain.pdb
+D:\Users\bsi80211\source\repos\PayrollBSI.API\PayrollBSI.Domain\obj\Release\net8.0\PayrollBSI.Domain.csproj.AssemblyReference.cache
+D:\Users\bsi80211\source\repos\PayrollBSI.API\PayrollBSI.Domain\obj\Release\net8.0\PayrollBSI.Domain.GeneratedMSBuildEditorConfig.editorconfig
+D:\Users\bsi80211\source\repos\PayrollBSI.API\PayrollBSI.Domain\obj\Release\net8.0\PayrollBSI.Domain.AssemblyInfoInputs.cache
+D:\Users\bsi80211\source\repos\PayrollBSI.API\PayrollBSI.Domain\obj\Release\net8.0\PayrollBSI.Domain.AssemblyInfo.cs
+D:\Users\bsi80211\source\repos\PayrollBSI.API\PayrollBSI.Domain\obj\Release\net8.0\PayrollBSI.Domain.csproj.CoreCompileInputs.cache
+D:\Users\bsi80211\source\repos\PayrollBSI.API\PayrollBSI.Domain\obj\Release\net8.0\PayrollBSI.Domain.sourcelink.json
+D:\Users\bsi80211\source\repos\PayrollBSI.API\PayrollBSI.Domain\obj\Release\net8.0\PayrollBSI.Domain.dll
+D:\Users\bsi80211\source\repos\PayrollBSI.API\PayrollBSI.Domain\obj\Release\net8.0\refint\PayrollBSI.Domain.dll
+D:\Users\bsi80211\source\repos\PayrollBSI.API\PayrollBSI.Domain\obj\Release\net8.0\PayrollBSI.Domain.pdb
+D:\Users\bsi80211\source\repos\PayrollBSI.API\PayrollBSI.Domain\obj\Release\net8.0\PayrollBSI.Domain.genruntimeconfig.cache
+D:\Users\bsi80211\source\repos\PayrollBSI.API\PayrollBSI.Domain\obj\Release\net8.0\ref\PayrollBSI.Domain.dll

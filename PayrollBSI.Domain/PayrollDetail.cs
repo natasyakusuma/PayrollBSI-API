@@ -10,7 +10,7 @@ public partial class PayrollDetail
 {
     [Key]
     [Column("PayrollDetailID")]
-    public int PayrollDetailId { get; set; }
+    public int PayrollDetailID { get; set; }
 
     [Column("EmployeeID")]
     public int EmployeeId { get; set; }

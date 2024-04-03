@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
+﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using Microsoft.EntityFrameworkCore;
 
@@ -11,7 +9,7 @@ public partial class Employee
 {
     [Key]
     [Column("EmployeeID")]
-    public int EmployeeId { get; set; }
+    public int EmployeeID { get; set; }
 
     [StringLength(50)]
     [Unicode(false)]
@@ -21,18 +19,12 @@ public partial class Employee
     [Unicode(false)]
     public string LastName { get; set; } = null!;
 
-    [NotMapped] // Not mapped to the database since it's a calculated property
-    public string EmployeeName
-    {
-        get { return $"{FirstName} {LastName}"; }
-        set { }
-    }
 
     [Column("RoleID")]
-    public int RoleId { get; set; }
+    public int RoleID {get; set; }
 
     [Column("PositionID")]
-    public int PositionId { get; set; }
+    public int PositionID { get; set; }
 
     [StringLength(255)]
     public string Username { get; set; } = null!;

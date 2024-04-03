@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using Microsoft.EntityFrameworkCore;
+using PayrollBSI.Data.Models;
 using PayrollBSI.Domain;
 
 namespace PayrollBSI.Data;
@@ -28,41 +29,38 @@ public partial class AppDbContext : DbContext
 
     public virtual DbSet<Tax> Taxes { get; set; }
 
-    public virtual DbSet<EmployeeWithRoleAndPositionName> EmployeeWithRoleAndPositionName { get; set; }
 
-    protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-#warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see https://go.microsoft.com/fwlink/?LinkId=723263.
-        => optionsBuilder.UseSqlServer("Data Source=.\\BSISqlExpress;Initial Catalog=Payrolls;Integrated Security=True;TrustServerCertificate=True;");
+
+    //    protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+    //#warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see https://go.microsoft.com/fwlink/?LinkId=723263.
+    //        => optionsBuilder.UseSqlServer("Data Source=.;Initial Catalog=Payrolls;Integrated Security=True;TrustServerCertificate=True;");
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
         modelBuilder.Entity<Attendance>(entity =>
         {
-            entity.HasKey(e => e.AttendanceId).HasName("PK__Attendan__8B69263C992F8474");
+			entity.HasKey(e => e.AttendanceId).HasName("PK__Attendance__8B69263C992F8474");
 
-            entity.HasOne(d => d.Employee).WithMany(p => p.Attendances)
+			entity.HasOne(d => d.Employee).WithMany(p => p.Attendances)
                 .OnDelete(DeleteBehavior.ClientSetNull)
                 .HasConstraintName("FK__Attendanc__Emplo__403A8C7D");
-        });
+
+		});
 
         modelBuilder.Entity<Employee>(entity =>
         {
-            entity.HasKey(e => e.EmployeeId).HasName("PK__Employee__7AD04FF1CDEA6CBF");
+            entity.HasKey(e => e.EmployeeID).HasName("PK__Employee__7AD04FF1CDEA6CBF");
 
-            entity.Property(e => e.EmployeeId).ValueGeneratedNever();
+            entity.Property(e => e.EmployeeID).ValueGeneratedNever();
 
             entity.HasOne(d => d.Position).WithMany(p => p.Employees)
                 .OnDelete(DeleteBehavior.ClientSetNull)
                 .HasConstraintName("FK__Employee__Positi__3D5E1FD2");
-
-            entity.HasOne(d => d.Role).WithMany(p => p.Employees)
-                .OnDelete(DeleteBehavior.ClientSetNull)
-                .HasConstraintName("FK__Employee__RoleID__3C69FB99");
         });
 
         modelBuilder.Entity<PayrollDetail>(entity =>
         {
-            entity.HasKey(e => e.PayrollDetailId).HasName("PK__PayrollD__010127A9ED150416");
+            entity.HasKey(e => e.PayrollDetailID).HasName("PK__PayrollD__010127A9ED150416");
 
             entity.HasOne(d => d.Employee).WithMany(p => p.PayrollDetails)
                 .OnDelete(DeleteBehavior.ClientSetNull)
@@ -89,7 +87,11 @@ public partial class AppDbContext : DbContext
             entity.Property(e => e.TaxId).ValueGeneratedNever();
         });
 
-        modelBuilder.Entity<EmployeeWithRoleAndPositionName>().HasKey(b => b.EmployeeID);
+        modelBuilder.Entity<EmployeeDetails>().HasNoKey().ToView(null);
+        modelBuilder.Entity<AttendanceDetails>().HasNoKey().ToView(null);
+        modelBuilder.Entity<PayrollDetailsCreate>().HasNoKey().ToView(null);
+     
+
 
         OnModelCreatingPartial(modelBuilder);
     }

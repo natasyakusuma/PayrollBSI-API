@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "Hash": "eDu/dt+WjaDSNFhqYNzwuNbXwMpx2Y8p2h5dRrxSIy0=",
+  "Source": "PayrollBSI.API",
+  "BasePath": "_content/PayrollBSI.API",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": []
+}

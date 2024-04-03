@@ -4,24 +4,21 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using PayrollBSI.BLL.DTO;
+using PayrollBSI.Data.Models;
 using PayrollBSI.Domain;
 
 namespace PayrollBSI.BLL.Interface.BLL
 {
-    public interface IEmployeeBLL
-    {
-        Task<Task> ChangePassword(string username, string newPassword);
-        Task<IEnumerable<EmployeeDTO>> GetAll();
-        Task<EmployeeDTO> GetById(int id);
-        Task<EmployeeDTO> Insert(EmployeeDTO obj);
-        Task<EmployeeDTO> Update(int id, EmployeeDTO obj);
-        Task<bool> Delete(int id);
-        Task<IEnumerable<EmployeeWithNameDTO>> GetWithRoleNameAndPositionName();
-        Task<IEnumerable<EmployeeWithNameDTO>> GetByRoleNameAndPositionName(int id);
-        Task<LoginCreateDTO> Login(string username, string password);
-        Task<IEnumerable<EmployeeDTO>> GetAllActiveEmployee();
-        Task<EmployeeDTO> GetByUsername(string username);
+	public interface IEmployeeBLL
+	{
+		Task<Task> ChangePassword(string username, string newPassword);
+		Task<EmployeeDTO> GetById(int id);
+		Task<LoginCreateDTO> Login(string username, string password);
+		Task<IEnumerable<EmployeeDTO>> GetAllActive();
+		Task<IEnumerable<EmployeeDTO>> Search(string employeeName, string positionName, string roleName);
+
+		Task<string> GetByUsername(string username);
 
 
-    }
+	}
 }

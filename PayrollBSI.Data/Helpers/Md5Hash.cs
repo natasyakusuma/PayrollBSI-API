@@ -12,10 +12,10 @@ namespace PayrollBSI.Data.Helpers
         {
             using (var md5 = System.Security.Cryptography.MD5.Create())
             {
-                byte[] inputBytes = System.Text.Encoding.UTF8.GetBytes(input);
+                byte[] inputBytes = Encoding.UTF8.GetBytes(input);
                 byte[] hashBytes = md5.ComputeHash(inputBytes);
 
-                var sb = new System.Text.StringBuilder();
+                var sb = new StringBuilder();
                 for (int i = 0; i < hashBytes.Length; i++)
                 {
                     sb.Append(hashBytes[i].ToString("X2"));  // convert byte to heksadesimals
